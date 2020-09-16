@@ -1,0 +1,31 @@
+{
+    "name": "uniswap-price",
+    "version": "1.0.0",
+    "description": "get token price from uniswap",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/thanhnguyennguyen/uniswap-price.git"
+    },
+    "keywords": [
+        "uniswap",
+        "price"
+    ],
+    "author": "NguyenNguyen (nguyenbk92@gmail.com)",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/thanhnguyennguyen/uniswap-price/issues"
+    },
+    "homepage": "https://github.com/thanhnguyennguyen/uniswap-price#readme",
+    "dependencies": {
+        "@ethersproject/address": "^5.0.4",
+        "@ethersproject/contracts": "^5.0.4",
+        "@ethersproject/networks": "^5.0.3",
+        "@ethersproject/providers": "^5.0.8",
+        "@ethersproject/solidity": "^5.0.4",
+        "@uniswap/sdk": "^3.0.3"
+    }
+}

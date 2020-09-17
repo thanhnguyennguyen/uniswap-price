@@ -8,12 +8,29 @@
      TokenAmount,
      TradeType
  } = require('@uniswap/sdk')
+ const {
+     getNetwork
+ } = require('@ethersproject/networks')
 
+ const {
+     getDefaultProvider,
+     InfuraProvider
+ } = require('@ethersproject/providers')
 
- const getMidPrice = async (baseToken, baseDecimal, quoteToken, quoteDecimal) => {
-     let base = new Token(ChainId.MAINNET, baseToken, baseDecimal),
-         quote = new Token(ChainId.MAINNET, quoteToken, quoteDecimal),
-         pair = await Fetcher.fetchPairData(quote, base),
+ const getMidPrice = async (baseToken, baseDecimal, quoteToken, quoteDecimal, chainId, infuraKey) => {
+     if (chainId == undefined) {
+         chainId = ChainId.MAINNET
+     }
+     let network
+     if (infuraKey != undefined) {
+         network = new InfuraProvider(getNetwork(chainId), infuraKey)
+     } else {
+         network = getDefaultProvider(getNetwork(chainId))
+     }
+
+     let base = new Token(chainId, baseToken, baseDecimal),
+         quote = new Token(chainId, quoteToken, quoteDecimal),
+         pair = await Fetcher.fetchPairData(quote, base, network),
          route = await new Route([pair], base),
          base2quote = await route.midPrice.toSignificant(6),
          quote2base = await route.midPrice.invert().toSignificant(6)
@@ -25,11 +42,19 @@
 
  }
 
- const getExecutionPrice = async (baseToken, baseDecimal, quoteToken, quoteDecimal, tradeAmount) => {
-     base = new Token(ChainId.MAINNET, baseToken, baseDecimal),
-
-         quote = new Token(ChainId.MAINNET, quoteToken, quoteDecimal),
-         pair = await Fetcher.fetchPairData(quote, base),
+ const getExecutionPrice = async (baseToken, baseDecimal, quoteToken, quoteDecimal, tradeAmount, chainId, infuraKey) => {
+     if (chainId == undefined) {
+         chainId = ChainId.MAINNET
+     }
+     let network
+     if (infuraKey != undefined) {
+         network = new InfuraProvider(getNetwork(chainId), infuraKey)
+     } else {
+         network = getDefaultProvider(getNetwork(chainId))
+     }
+     let base = new Token(chainId, baseToken, baseDecimal),
+         quote = new Token(chainId, quoteToken, quoteDecimal),
+         pair = await Fetcher.fetchPairData(quote, base, network),
          route = await new Route([pair], base),
          base2quote = await route.midPrice.toSignificant(6),
          quote2base = await route.midPrice.invert().toSignificant(6),

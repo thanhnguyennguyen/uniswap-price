@@ -18,6 +18,8 @@ Note: WETH address is `0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2`
 - sourceDecimal: decimal of source token
 - destToken: address of destination token
 - destDecimal: decimal of destination token
+- chainId: default 1 (Ethereum mainnet 1)
+- infuraKey: default empty means that we are using defaultProvider with limited request
 
 ```nodejs
 

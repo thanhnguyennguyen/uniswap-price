@@ -1,4 +1,4 @@
-# uniswap-price
+# uniswap-price [![npm version](https://badge.fury.io/js/uniswap-price.svg)](https://badge.fury.io/js/uniswap-price)
 get token price from uniswap
 
 ## Install 

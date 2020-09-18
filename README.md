@@ -22,13 +22,14 @@ Note: WETH address is `0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2`
 - infuraKey: default empty means that we are using defaultProvider with limited request
 
 ```nodejs
+const uniswapPrice = require('uniswap-price')
 
  const main = async () => {
      let data
-     data = await getMidPrice("0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2", 18, "0x6B175474E89094C44Da98b954EedeAC495271d0F", 18)
+     data = await uniswapPrice.getMidPrice("0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2", 18, "0x6B175474E89094C44Da98b954EedeAC495271d0F", 18)
      console.log(data)
 
-     data = await getExecutionPrice("0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2", 18, "0x6B175474E89094C44Da98b954EedeAC495271d0F", 18, "1000000000000000000")
+     data = await uniswapPrice.getExecutionPrice("0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2", 18, "0x6B175474E89094C44Da98b954EedeAC495271d0F", 18, "1000000000000000000")
      console.log(data)
  }
 ```

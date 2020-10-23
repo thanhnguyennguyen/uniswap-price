@@ -14,6 +14,8 @@ Note: WETH address is `0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2`
 - getExecutionPrice: return the exact price for the trade with your specified amount
 - getMidPriceViaETH: return the reference price using route via ETH
 - getExecutionPriceViaETH: return the exact price for the trade with your specified amount using route via ETH
+- getMidPriceViaExactToken: return the reference price using route via ExactToken
+- getExecutionPriceViaExactToken: return the exact price for the trade with your specified amount using route via ExactToken
 
 ### Arguments
 - sourceToken: address of source token
@@ -38,6 +40,13 @@ data = await uniswapPrice.getMidPriceViaETH("0xA0b86991c6218b36c1d19D4a2e9Eb0cE3
      console.log(data)
 
      data = await uniswapPrice.getExecutionPriceViaETH("0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48", 6, "0x6B175474E89094C44Da98b954EedeAC495271d0F", 18, "1000000000")
+     console.log(data)
+     
+     let USDC = "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+         USDCDecimal = 6
+     // getMidPrice via USDC Token
+     // route: 0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48 -> USDC -> 0x6B175474E89094C44Da98b954EedeAC495271d0F
+     data = await uniswapPrice.getMidPriceViaExactToken("0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48", 6, "0x6B175474E89094C44Da98b954EedeAC495271d0F", 18, USDC, USDCDecimal)
      console.log(data)
  }
 ```

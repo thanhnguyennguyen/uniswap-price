@@ -10,18 +10,20 @@ npm i --save uniswap-price
 
 Note: WETH address is `0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2`
 
-- getMidPrice: return the reference price
-- getExecutionPrice: return the exact price for the trade with your specified amount
-- getMidPriceViaETH: return the reference price using route via ETH
-- getExecutionPriceViaETH: return the exact price for the trade with your specified amount using route via ETH
-- getMidPriceViaExactToken: return the reference price using route via ExactToken
-- getExecutionPriceViaExactToken: return the exact price for the trade with your specified amount using route via ExactToken
+- **getMidPrice(sourceToken, sourceDecimal, destToken, destDecimal, chainId, infuraKey)**: return the reference price
+- **getExecutionPrice(sourceToken, sourceDecimal, destToken, destDecimal, chainId, infuraKey)**: return the exact price for the trade with your specified amount
+- **getMidPriceViaETH(sourceToken, sourceDecimal, destToken, destDecimal, chainId, infuraKey)**: return the reference price using route via ETH
+- **getExecutionPriceViaETH(sourceToken, sourceDecimal, destToken, destDecimal, chainId, infuraKey)**: return the exact price for the trade with your specified amount using route via ETH
+- **getMidPriceViaExactToken(sourceToken, sourceDecimal, destToken, destDecimal, pivotToken, pivotTokenDecimal, chainId, infuraKey)**: return the reference price using route via ExactToken
+- **getExecutionPriceViaExactToken(sourceToken, sourceDecimal, destToken, destDecimal, pivotToken, pivotTokenDecimal, chainId, infuraKey)**: return the exact price for the trade with your specified amount using route via ExactToken
 
 ### Arguments
 - sourceToken: address of source token
 - sourceDecimal: decimal of source token
 - destToken: address of destination token
 - destDecimal: decimal of destination token
+- pivotToken: the token used for routing
+- pivotTokenDecimal: decimal of the token used for routing
 - chainId: default 1 (Ethereum mainnet 1)
 - infuraKey: default empty means that we are using defaultProvider with limited request
 
